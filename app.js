@@ -58,7 +58,6 @@ new Vue({
 	},
 	computed: {
 		showLog: function() {
-			console.log(this.isActive)
 			return this.isActive = true;
 		},
 		playerHealLog: function() {
