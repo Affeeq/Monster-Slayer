@@ -10,7 +10,7 @@
 * Player can decide to give up the game and start a new game
 
 #### Code
-* This is the initial code that was created by me. I will add code created by Max soon.
+* This a new branch created for the code along. 
 
 
 #### Here is the link to my code on Codepen https://codepen.io/Affeeq/pen/wvaXmjG
