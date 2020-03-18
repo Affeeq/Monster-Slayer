@@ -10,7 +10,7 @@
 * Player can decide to give up the game and start a new game
 
 #### Code
-* This a new branch created for the code along from the course.
+* This a new branch created for the code along from the course. The only edit is that on the heal method, the heal value is random with an if else statement that check whether player's health is going over 100.
 
 
 #### Here is the link to my code on Codepen https://codepen.io/Affeeq/pen/wvaXmjG
