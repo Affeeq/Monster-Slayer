@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: myHealth + '%'}">
+                	<p>{{ myHealth }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
+                	<p>{{ monsterHealth }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls" v-show="show">
+        <div class="small-12 columns">
+            <button id="start-game" @click="show = !show">START NEW GAME</button>
+        </div>
+    </section>
+    <section class="row controls" v-show="!show">
+        <div class="small-12 columns">
+            <button id="attack" @click="attack = randomNum(10, 5), playerAttackLog(attack), monsterHealth = monsterHealth - attack, isPlayer = !isPlayer, showLog">ATTACK</button>
+            <button id="special-attack" @click="specialAttack = randomNum(20, 10), playerAttackLog(attack), monsterHealth = monsterHealth - specialAttack, isPlayer = !isPlayer, showLog">SPECIAL ATTACK</button>
+            <button id="heal" @click="heal = randomNum(15, 10), playerHealLog, myHealth = myHealth + heal, isPlayer = !isPlayer, showLog">HEAL</button>
+            <button id="give-up" @click="giveUp">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log" v-show="isActive">
+        <div class="small-12 columns">
+            <ul>
+            	<template v-for="(history, index) in gameHistory">
+            		<li v-if="index === 1 || (index % 2) !== 0" :class="playerTurn">
+            			{{ history }}
+                	</li>
+                	<li v-else :class="monsterTurn">
+                		{{ history }}
+                	</li>
+            	</template>
+            </ul>
+        </div>
+    </section>
+</div>
+</body>
+<script type="text/javascript" src="app.js"></script>
+</html>
